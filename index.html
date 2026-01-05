@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Linktree Perso</title>
+    <title>Linktree de Loghan</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -13,51 +13,50 @@
     <div class="glass-container">
         
         <div class="profile">
-            <img src="https://via.placeholder.com/150" alt="Ma Photo" class="avatar">
-            <h1>Ton Prénom</h1>
-            <p>Développeur Web | Passionné de JS</p>
+            <img src="https://avatars.githubusercontent.com/u/235885061?s=400&u=30b31f3f2aa3592b6dc375dc5e3c18cc9b033c7c&v=4" alt="Photo de Loghan" class="avatar">
+            <h1>Loghan Morisson</h1>
+            <p>Développeur Web & Mobile | Passionné par le développement</p>
         </div>
 
         <div class="links">
-            <a href="#" class="link-item">
+            <a href="https://github.com/loghanmrsn" target="_blank" class="link-item">
                 <i class="fab fa-github"></i> Mon GitHub
             </a>
-            <a href="#" class="link-item">
+            <a href="https://linkedin.com/in/loghanmrsn" target="_blank" class="link-item">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="#" class="link-item">
+            <a href="https://loghanmrsn.github.io/Portfolio/" class="link-item">
                 <i class="fas fa-briefcase"></i> Mon Portfolio
             </a>
-            <a href="#" class="link-item special">
+            <a href="mailto:moris.loghan@gmail.com" class="link-item special">
                 <i class="fas fa-paper-plane"></i> Me Contacter
             </a>
-        </div>
-        
-    </div>
+        </div> 
 
-<button id="shareBtn" style="margin-top: 20px; background: none; border: none; color: white; cursor: pointer; opacity: 0.7;">
-    <i class="fas fa-share-alt"></i> Partager ce profil
-</button>
+        <button id="shareBtn" class="share-btn">
+            <i class="fas fa-share-alt"></i> Partager ce profil
+        </button>
 
-<script>
-    const shareBtn = document.getElementById('shareBtn');
-    shareBtn.addEventListener('click', async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'Mon Profil Web',
-                    text: 'Regarde ce portfolio !',
-                    url: window.location.href
-                });
-            } catch (err) {
-                console.log('Erreur de partage', err);
+    </div> <script>
+        const shareBtn = document.getElementById('shareBtn');
+        shareBtn.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Linktree de Loghan',
+                        text: 'Regarde le profil de ce développeur !',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Erreur de partage', err);
+                }
+            } else {
+                // Fallback pour PC (copie le lien)
+                navigator.clipboard.writeText(window.location.href);
+                alert('Lien copié dans le presse-papier !');
             }
-        } else {
-            alert('Lien copié dans le presse-papier !');
-            navigator.clipboard.writeText(window.location.href);
-        }
-    });
-</script>
+        });
+    </script>
 
 </body>
 </html>
