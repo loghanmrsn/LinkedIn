@@ -1,0 +1,120 @@
+:root {
+    --primary-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --border: 1px solid rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Un beau dégradé animé en arrière-plan pour faire ressortir le verre */
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* LE CŒUR DU PROJET : L'EFFET VERRE */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* C'est ça qui floute l'arrière plan ! */
+    -webkit-backdrop-filter: blur(10px); /* Pour Safari */
+    border: var(--border);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 400px; /* Format mobile */
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Animation au survol */
+.link-item:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05); /* Petit effet de zoom */
+    border: 1px solid white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+.special {
+    background: white;
+    color: #ff9a9e; /* Couleur du texte inversée */
+    font-weight: bold;
+}
+
+/* Animation du fond */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.share-btn {
+    margin-top: 20px;       /* Espace au dessus */
+    background: none;       /* Fond transparent */
+    border: none;           /* Pas de bordure moche */
+    color: rgba(255, 255, 255, 0.8); /* Blanc légèrement transparent */
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;          /* Pour aligner icône et texte */
+    align-items: center;
+    justify-content: center; /* Centre le contenu du bouton */
+    gap: 8px;               /* Espace entre l'icône et le texte */
+    width: 100%;            /* Prend la largeur pour bien se centrer */
+    transition: color 0.3s;
+}
+
+.share-btn:hover {
+    color: white;           /* Devient blanc pur au survol */
+}

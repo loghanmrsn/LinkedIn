@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Linktree Perso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Ma Photo" class="avatar">
+            <h1>Ton Prénom</h1>
+            <p>Développeur Web | Passionné de JS</p>
+        </div>
+
+        <div class="links">
+            <a href="#" class="link-item">
+                <i class="fab fa-github"></i> Mon GitHub
+            </a>
+            <a href="#" class="link-item">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="#" class="link-item">
+                <i class="fas fa-briefcase"></i> Mon Portfolio
+            </a>
+            <a href="#" class="link-item special">
+                <i class="fas fa-paper-plane"></i> Me Contacter
+            </a>
+        </div>
+        
+    </div>
+
+<button id="shareBtn" style="margin-top: 20px; background: none; border: none; color: white; cursor: pointer; opacity: 0.7;">
+    <i class="fas fa-share-alt"></i> Partager ce profil
+</button>
+
+<script>
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Mon Profil Web',
+                    text: 'Regarde ce portfolio !',
+                    url: window.location.href
+                });
+            } catch (err) {
+                console.log('Erreur de partage', err);
+            }
+        } else {
+            alert('Lien copié dans le presse-papier !');
+            navigator.clipboard.writeText(window.location.href);
+        }
+    });
+</script>
+
+</body>
+</html>
